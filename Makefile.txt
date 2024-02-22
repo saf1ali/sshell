@@ -1,0 +1,13 @@
+all: sshell
+
+sshell: sshell.o sshell_utils.o
+	gcc -Wall -Wextra -Werror -o sshell sshell.o sshell_utils.o
+
+sshell.o: sshell.c sshell_utils.h
+	gcc -Wall -Wextra -Werror -c -o sshell.o sshell.c
+
+sshell_utils.o: sshell_utils.h sshell_utils.c
+	gcc -Wall -Wextra -Werror -c -o sshell_utils.o sshell_utils.c
+
+clean:
+	rm -f sshell sshell.o sshell_utils.o
